@@ -9,5 +9,5 @@ public class Routes {
 
 	//CATEGORY MODEL
 	public static String get_cat_url = base_url+"/api/category/{categoryID}";
-	
+	public static String post_cat_url = base_url+"/api/category/addCategory/{categoryName}";
 }

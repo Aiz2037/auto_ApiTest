@@ -6,17 +6,18 @@ import org.testng.annotations.Test;
 import Endpoints.CategoryEndpoints;
 import io.restassured.response.Response;
 
-public class TC0002 {
-	
+public class TC0003 {
+
 	@Test
-	public void testGetCategoryById() {
-		Response res = CategoryEndpoints.getCategory(1);
+	public void testPostCategory() {
+		Response res = CategoryEndpoints.newCategory("Vegetable");
 		res.then().log().all();
+		
 		Integer statusCode = res.getStatusCode();
 		String categoryName = res.jsonPath().get("data.name").toString();
 		
 		Assert.assertEquals(statusCode, 200);
-		Assert.assertEquals(categoryName, "Shoes");
+		Assert.assertEquals(categoryName, "Vegetable");
 	}
-
+	
 }
