@@ -27,4 +27,28 @@ public class CategoryEndpoints {
 					.post(Routes.post_cat_url);
 		return res;
 	}
+	
+	public static Response UpdateCategory(Integer id, String categoryName) {
+
+		Response res = 
+				given()
+				.param("categoryID", id)
+				.param("updatecategoryName", categoryName)
+				
+				.when()
+					.put(Routes.update_cat_url);
+		return res;
+	}
+	
+	public static Response deleteCategory(Integer id) {
+
+		Response res = 
+				given()
+				
+				.pathParam("categoryID",id)
+				
+				.when()
+					.delete(Routes.delete_cat_url);
+		return res;
+	}
 }
